@@ -1,0 +1,9 @@
+---
+
+# Install Sensu Client
+
+- hosts: clients
+  remote_user: root
+  sudo: yes
+  roles:
+    - sensu_clients
