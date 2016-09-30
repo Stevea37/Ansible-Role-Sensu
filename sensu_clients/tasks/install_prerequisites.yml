@@ -22,7 +22,7 @@
   gem:
     name: "{{ item.name }}"
     executable: /opt/sensu/embedded/bin/gem
-    gem_source: "{{ item.name }}{{ item.suffix }}"
+    gem_source: "/tmp/plugins/{{ item.name }}{{ item.suffix }}"
   with_items:
     - { name: 'sensu-plugins', suffix: '-1.4.2.gem'}
     - { name: 'sensu-plugins-disk-checks', suffix: '-2.0.1.gem'}
