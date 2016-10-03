@@ -29,3 +29,4 @@
     - { name: 'sensu-plugins-load-checks', suffix: '-1.0.0.gem'}
     - { name: 'sensu-plugins-memory-checks', suffix: '-1.0.2.gem'}
     - { name: 'sys-filesystem', suffix: '-1.1.5.gem'}
+    - { name: 'sensu-plugins-jenkins', suffix: '-0.1.0.gem'}
