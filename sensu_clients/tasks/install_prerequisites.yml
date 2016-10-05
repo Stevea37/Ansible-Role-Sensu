@@ -9,9 +9,9 @@
     mode: 0755
   with_items:
     - { src: "../artifacts/{{ sensu_rpm }}", dest: "/tmp/{{ sensu_rpm }}" } 
-    - { src: "../artifacts/ssl", dest: "/etc/sensu/ssl" }
-    - { src: "../artifacts/plugins", dest: "/tmp/plugins" }
-    - { src: "../artifacts/conf.d", dest: "/etc/sensu/conf.d" }
+    - { src: "../artifacts/ssl/", dest: "/etc/sensu/ssl" }
+    - { src: "../artifacts/plugins/", dest: "/tmp/plugins" }
+    - { src: "../artifacts/conf.d/", dest: "/etc/sensu/conf.d" }
 
 - name: Installing components
   yum:
@@ -19,7 +19,7 @@
     state: present
 
 - name: Installing plugins
-  gem:
+  command:
     name: "{{ item.name }}"
     executable: /opt/sensu/embedded/bin/gem
     gem_source: "/tmp/plugins/{{ item.name }}{{ item.suffix }}"
@@ -30,3 +30,5 @@
     - { name: 'sensu-plugins-memory-checks', suffix: '-1.0.2.gem'}
     - { name: 'sys-filesystem', suffix: '-1.1.5.gem'}
     - { name: 'sensu-plugins-jenkins', suffix: '-0.1.0.gem'}
+
+
