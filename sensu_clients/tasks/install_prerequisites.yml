@@ -19,7 +19,7 @@
     state: present
 
 - name: Installing plugins
-  command:
+  gem:
     name: "{{ item.name }}"
     executable: /opt/sensu/embedded/bin/gem
     gem_source: "/tmp/plugins/{{ item.name }}{{ item.suffix }}"
