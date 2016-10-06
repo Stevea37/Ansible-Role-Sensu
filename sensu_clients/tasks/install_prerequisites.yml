@@ -24,11 +24,12 @@
     executable: /opt/sensu/embedded/bin/gem
     gem_source: "/tmp/plugins/{{ item.name }}{{ item.suffix }}"
   with_items:
+    - { name: 'sys-filesystem', suffix: '-1.1.5.gem'}
+    - { name: 'chronic_duration' suffix: '-0.10.6.gem'}
     - { name: 'sensu-plugin', suffix: '-1.4.2.gem'}
     - { name: 'sensu-plugins-disk-checks', suffix: '-2.0.1.gem'}
     - { name: 'sensu-plugins-load-checks', suffix: '-1.0.0.gem'}
     - { name: 'sensu-plugins-memory-checks', suffix: '-1.0.2.gem'}
-    - { name: 'sys-filesystem', suffix: '-1.1.5.gem'}
     - { name: 'sensu-plugins-jenkins', suffix: '-0.1.0.gem'}
 
 
