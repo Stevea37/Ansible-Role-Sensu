@@ -1,0 +1,30 @@
+---
+
+- include_vars: prequisites_plugins.yml
+
+- name: Copying prequisite files to remote machine
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: 0755
+  with_items: "{{ base_files }}"
+
+- name: Installing components
+  yum:
+    name: "/tmp/{{ sensu_rpm }}"
+    state: present
+
+- name: Installing plugins
+  debug:
+    msg: "Plugin to install: {{ item.name }}"
+  command:
+    name: "{{ item.name }}"
+    executable: /opt/sensu/embedded/bin/gem
+    gem_source: "/tmp/plugins/{{ item.name }}{{ item.suffix }}"
+  with_items: "{{ plugin_dict[ansible_hostname].plugins }}"
+
+
+
+
