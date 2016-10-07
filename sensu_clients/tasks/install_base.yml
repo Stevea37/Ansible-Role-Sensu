@@ -1,6 +1,6 @@
 ---
 
-- include_vars: prequisites_plugins.yml
+- include_vars: prerequisites_plugins.yml
 
 - name: Copying prequisite files to remote machine
   copy:

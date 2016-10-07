@@ -1,6 +1,6 @@
 ---
 
-- include: install_prerequisites.yml
+- include: install_base.yml
 
 - include: configure_sensu.yml
 
