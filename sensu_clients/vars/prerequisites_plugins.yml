@@ -18,6 +18,6 @@ plugin_dict:
     - { name: 'DEVU0000692', plugins: "{{ base }}"}
     - { name: 'DEVU0000693', plugins: "{{ base }}"}
     - { name: 'DEVU0000694', plugins: "{{ base }}"}
-    - { name: 'DEVU0000695', plugins: "{{ base + jenkins }}"}
+    - { name: 'Test1', plugins: "{{ base + jenkins }}"}
     - { name: 'DEVU0000696', plugins: "{{ base }}"}
     - { name: 'DEVU0000697', plugins: "{{ base }}"}

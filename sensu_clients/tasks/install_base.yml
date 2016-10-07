@@ -19,10 +19,10 @@
 - name: Installing plugins
   debug:
     msg: "Plugin to install: {{ item.name }}"
-  command:
-    name: "{{ item.name }}"
-    executable: /opt/sensu/embedded/bin/gem
-    gem_source: "/tmp/plugins/{{ item.name }}{{ item.suffix }}"
+  #command:
+    #name: "{{ item.name }}"
+    #executable: /opt/sensu/embedded/bin/gem
+    #gem_source: "/tmp/plugins/{{ item.name }}{{ item.suffix }}"
   with_items: "{{ plugin_dict[ansible_hostname].plugins }}"
 
 
