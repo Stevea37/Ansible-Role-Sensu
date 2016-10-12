@@ -4,8 +4,8 @@
 
 - name: Copying configuration files onto remote machine
   get_url:
-    url: "{{ item.src }}"
-    dest: ""
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
   with_items: "{{ local_files }}"
 
 - name: Pulling down Sensu installation files ({{ sensu_rpm.name }}-{{ sensu_rpm.version }}.rpm)
