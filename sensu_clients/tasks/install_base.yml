@@ -2,28 +2,38 @@
 
 - include_vars: prerequisites_plugins.yml
 
-- name: Copying prequisite files to remote machine
+- name: Copying configuration files onto remote machine
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     owner: root
     group: root
     mode: 0755
-  with_items: "{{ base_files }}"
+  with_items: "{{ local_files }}"
 
-- name: Installing components
+- name: Pulling down Sensu installation files ({{ sensu_rpm.name }}-{{ sensu_rpm.version }}.rpm)
+  get_url:
+    url: "{{ nexus_repo }}/{{ sensu_rpm.name }}/{{ sensu_rpm.version }}/{{ sensu_rpm.name }}-{{ sensu_rpm.version }}.rpm"
+
+- name: Installing Sensu
   yum:
-    name: "/tmp/{{ sensu_rpm }}"
+    name: "/tmp/{{ sensu_rpm.name }}-{{ sensu_rpm.version }}.rpm"
     state: present
 
-- name: Installing plugins
-  debug:
-    msg: "Plugin to install: {{ item.name }}"
-  #command:
-    #name: "{{ item.name }}"
-    #executable: /opt/sensu/embedded/bin/gem
-    #gem_source: "/tmp/plugins/{{ item.name }}{{ item.suffix }}"
-  with_items: "{{ plugin_dict[ansible_hostname].plugins }}"
+##############################
+
+- name: Pulling down Sensu plugin gems
+  get_url:
+    url: "{{ nexus_repo }}/{{ item.name }}/{{ item.version }}/{{ item.name }}-{{ item.version }}.gem"
+    dest: "/tmp/plugins/"
+  with_items: "{{ plugin_dict[ansible_hostname] }}"
+
+- name: Installing Plugins
+  gem:
+    name: "{{ item.name }}"
+    executable: /opt/sensu/embedded/bin/gem
+    gem_source: "/tmp/plugins/{{ item.name }}-{{ item.version }}.gem"
+  with_items: "{{ plugin_dict[ansible_hostname] }}"
 
 
 

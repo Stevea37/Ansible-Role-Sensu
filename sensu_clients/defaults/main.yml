@@ -1,10 +1,14 @@
 ---
 
-sensu_rpm: 'sensu-0.26.3-1.x86_64.rpm'
-nexus_repo: "http://10.102.81.194:8081/nexus/content/repositories/thirdparty/sensu/"
+sensu_rpm:
+	name: 'sensu'
+	version: '0.26.3-1'
 
-base_files:
-  - { src: "{{nexus_repo}}/{{ sensu_rpm }}", dest: "/tmp/{{ sensu_rpm }}" }
-  - { src: "../artifacts/ssl/", dest: "/etc/sensu/ssl" }
-  - { src: "../artifacts/plugins/", dest: "/tmp/plugins" }
-  - { src: "../artifacts/conf.d/", dest: "/etc/sensu/conf.d" }
+nexus_hostname: '13.69.185.249'
+nexus_repo: "http://{{ nexus_hostname }}:8081/nexus/content/repositories/thirdparty/sensu"
+copy_src: '../artifacts'
+
+local_files:
+  - { src: "{{ copy_src }}/ssl/", dest: "/etc/sensu/ssl" }
+  - { src: "{{ copy_src }}/conf.d/", dest: "/etc/sensu/conf.d" }
+

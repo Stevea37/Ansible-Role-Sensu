@@ -1,23 +1,38 @@
 ---
 
 base:
-    - { sys-filesystem', suffix: '-1.1.5.gem'}
-    - { sensu-plugin', suffix: '-1.4.2.gem'}
-    - { sensu-plugins-disk-checks', suffix: '-2.0.1.gem'}
-    - { sensu-plugins-load-checks', suffix: '-1.0.0.gem'}
-    - { sensu-plugins-memory-checks', suffix: '-1.0.2.gem'}
+    - { name: 'sys-filesystem', version: '1.1.5.gem'}
+    - { name: 'sensu-plugin', version: '1.4.2.gem'}
+    - { name: 'sensu-plugins-disk-checks', version: '2.0.1.gem'}
+    - { name: 'sensu-plugins-load-checks', version: '1.0.0.gem'}
+    - { name: 'sensu-plugins-memory-checks', version: '1.0.2.gem'}
 
 jenkins:
-    - { chronic_duration', suffix: '-0.10.6.gem'}
-    - { sensu-plugins-jenkins', suffix: '-0.1.0.gem'}
+    - { name: 'chronic_duration', version: '0.10.6.gem'}
+    - { name: 'sensu-plugins-jenkins', version: '0.1.0.gem'}
+
+bitbucket:
+
+
+jira:
+
+
+confluence:
+
+
+nexus:
+
+
+docker:
+
 
 
 
 ### DICT
 plugin_dict:
-    - { DEVU0000692: "{{ base }}"}
-    - { DEVU0000693: "{{ base }}"}
-    - { DEVU0000694: "{{ base }}"}
-    - { Test1: "{{ base + jenkins }}"}
-    - { DEVU0000696: "{{ base }}"}
-    - { DEVU0000697: "{{ base }}"}
+    DEVU0000692: "{{ base }}"
+    DEVU0000693: "{{ base }}"
+    DEVU0000694: "{{ base }}"
+    Test1: "{{ base + jenkins }}"
+    DEVU0000696: "{{ base }}"
+    DEVU0000697: "{{ base }}"
