@@ -3,12 +3,9 @@
 - include_vars: prerequisites_plugins.yml
 
 - name: Copying configuration files onto remote machine
-  copy:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    owner: root
-    group: root
-    mode: 0755
+  get_url:
+    url: "{{ item.src }}"
+    dest: ""
   with_items: "{{ local_files }}"
 
 - name: Pulling down Sensu installation files ({{ sensu_rpm.name }}-{{ sensu_rpm.version }}.rpm)
