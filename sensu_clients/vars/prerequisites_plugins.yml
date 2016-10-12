@@ -8,7 +8,7 @@ base:
     - { name: 'sensu-plugins-memory-checks', version: '1.0.2'}
 
 jenkins:
-    - { name: 'chronic_duration', version: '0.10.6'}
+    - { name: 'chronic_duration', version: '0.10.16'}
     - { name: 'sensu-plugins-jenkins', version: '0.1.0'}
 
 bitbucket:
