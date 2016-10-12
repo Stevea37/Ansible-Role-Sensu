@@ -9,6 +9,6 @@ nexus_repo: "http://{{ nexus_hostname }}:8081/nexus/content/repositories/thirdpa
 copy_src: '../artifacts'
 
 local_files:
-  - { src: "{{ copy_src }}/ssl/", dest: "/etc/sensu/ssl" }
-  - { src: "{{ copy_src }}/conf.d/", dest: "/etc/sensu/conf.d" }
+  - { src: "../artifacts/ssl/", dest: "/etc/sensu/ssl" }
+  - { src: "../artifacts/conf.d/", dest: "/etc/sensu/conf.d" }
 
