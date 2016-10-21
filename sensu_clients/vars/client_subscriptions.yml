@@ -1,0 +1,19 @@
+subs_dict:
+    DEVU0000692:
+      - bitbucket
+      - dev-server
+    DEVU0000693: 
+      - dev-server
+    DEVU0000694:
+      - dev-server
+    DEVU0000695:
+      - dev-server
+      - jenkins
+      - nexus
+    DEVU0000696:
+      - dev-server
+      - cdsrisk
+    DEVU0000697:
+      - dev-server
+      - jira
+      - confluence

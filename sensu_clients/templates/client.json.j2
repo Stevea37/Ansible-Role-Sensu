@@ -3,8 +3,10 @@
     "name": "{{ ansible_hostname }}",
     "address": "{{ ansible_default_ipv4.address }}",
     "environment": "development",
-    "subscriptions": [
-      "dev-server"
+    "subscriptions": [{% for sub in subs_dict[ansible_hostname] -%}{% if loop.last %}
+      "{{ sub }}"{% else %}
+      "{{ sub }}",{% endif %}
+{%- endfor %}
     ],
     "socket": {
       "bind": "127.0.0.1",

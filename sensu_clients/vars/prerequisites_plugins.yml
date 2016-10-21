@@ -1,38 +1,25 @@
 ---
 
 base:
-    - { name: 'sys-filesystem', version: '1.1.5'}
-    - { name: 'sensu-plugin', version: '1.4.2'}
-    - { name: 'sensu-plugins-disk-checks', version: '2.0.1'}
-    - { name: 'sensu-plugins-load-checks', version: '1.0.0'}
-    - { name: 'sensu-plugins-memory-checks', version: '1.0.2'}
+    - 'sensu-plugins-disk-checks'
+    - 'sensu-plugins-load-checks'
+    - 'sensu-plugins-memory-checks'
 
-jenkins:
-    - { name: 'chronic_duration', version: '0.10.16'}
-    - { name: 'sensu-plugins-jenkins', version: '0.1.0'}
+cdsrisk:
+    - 'sensu-plugins-cdsrisk'
 
-bitbucket:
+web:
+    - 'sensu-plugins-web-response'
 
+atlassian:
+    - 'sensu-plugins-atlassian'
 
-jira:
-
-
-confluence:
-
-
-nexus:
-
-
-docker:
-
-
-
-
+ 
 ### DICT
 plugin_dict:
-    DEVU0000692: "{{ base }}"
+    DEVU0000692: "{{ base + atlassian}}"
     DEVU0000693: "{{ base }}"
     DEVU0000694: "{{ base }}"
-    Test1: "{{ base + jenkins }}"
-    DEVU0000696: "{{ base }}"
-    DEVU0000697: "{{ base }}"
+    DEVU0000695: "{{ base + web}}"
+    DEVU0000696: "{{ base  + cdsrisk}}"
+    DEVU0000697: "{{ base + atlassian }}"

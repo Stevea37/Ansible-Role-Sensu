@@ -10,7 +10,7 @@
 
 - name: Pulling down Sensu installation files ({{ sensu_rpm.name }}-{{ sensu_rpm.version }}.rpm)
   get_url:
-    url: "{{ nexus_repo }}/{{ sensu_rpm.name }}/{{ sensu_rpm.version }}/{{ sensu_rpm.name }}-{{ sensu_rpm.version }}.rpm"
+    url: "{{ rpm_repo }}/{{ sensu_rpm.name }}/{{ sensu_rpm.version }}/{{ sensu_rpm.name }}-{{ sensu_rpm.version }}.rpm"
     dest: "/tmp/"
 
 - name: Installing Sensu
@@ -19,18 +19,12 @@
     state: present
 
 ##############################
-
-- name: Pulling down Sensu plugin gems
-  get_url:
-    url: "{{ nexus_repo }}/{{ item.name }}/{{ item.version }}/{{ item.name }}-{{ item.version }}.gem"
-    dest: "/tmp/plugins/"
-  with_items: "{{ plugin_dict[ansible_hostname] }}"
-
+ 
 - name: Installing Plugins
   gem:
-    name: "{{ item.name }}"
+    name: "{{ item }}"
     executable: /opt/sensu/embedded/bin/gem
-    gem_source: "/tmp/plugins/{{ item.name }}-{{ item.version }}.gem"
+    repository: "{{ gem_repo }}"
   with_items: "{{ plugin_dict[ansible_hostname] }}"
 
 

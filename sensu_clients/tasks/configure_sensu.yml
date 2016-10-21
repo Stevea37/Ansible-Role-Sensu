@@ -22,3 +22,6 @@
 
 - name: Restart/Start Sensu
   shell: "/etc/init.d/sensu-client restart"
+
+ 
+ 
