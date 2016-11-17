@@ -16,10 +16,10 @@ atlassian:
 
  
 ### DICT
-plugin_dict:
-    DEVU0000692: "{{ base + atlassian}}"
-    DEVU0000693: "{{ base }}"
-    DEVU0000694: "{{ base }}"
-    DEVU0000695: "{{ base + web}}"
-    DEVU0000696: "{{ base  + cdsrisk}}"
-    DEVU0000697: "{{ base + atlassian }}"
+plugins_ref: {} # EXAMPLE
+                #MACHINE2: "{{ base + atlassian}}"
+                #MACHINE3: "{{ base }}"
+                #MACHINE4: "{{ base }}"
+                #MACHINE5: "{{ base + web}}"
+                #MACHINE6: "{{ base  + cdsrisk}}"
+                #MACHINE7: "{{ base + atlassian }}"
