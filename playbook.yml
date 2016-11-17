@@ -3,33 +3,21 @@
 # Install Sensu Client
 
 - hosts: clients
-  remote_user: root
+  remote_user: sayers
   sudo: yes
   roles:
     - role: sensu_clients
       plugins_ref:
-	    DEVU0000692: "{{ base + atlassian}}"
-	    DEVU0000693: "{{ base }}"
-	    DEVU0000694: "{{ base }}"
-	    DEVU0000695: "{{ base + web}}"
-	    DEVU0000696: "{{ base  + cdsrisk}}"
-	    DEVU0000697: "{{ base + atlassian }}"
+	    DEVU0000908: "{{ base }}"
+	    DEVU0000900: "{{ base }}"
+	    DEVU0001026: "{{ base }}"
+	    DEVU0001027: "{{ base }}"
       subscriptions_ref:
-  	    DEVU0000692:
-	      - bitbucket
+  	    DEVU0000908:
 	      - base
-	    DEVU0000693: 
+	    DEVU0000900: 
 	      - base
-	    DEVU0000694:
+	    DEVU0001026:
 	      - base
-	    DEVU0000695:
+	    DEVU0001027:
 	      - base
-	      - jenkins
-	      - nexus
-	    DEVU0000696:
-	      - base
-	      - cdsrisk
-	    DEVU0000697:
-	      - base
-	      - jira
-	      - confluence
