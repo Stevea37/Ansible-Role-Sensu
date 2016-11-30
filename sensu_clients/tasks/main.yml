@@ -1,6 +1,0 @@
----
-
-- include: install_base.yml
-
-- include: configure_sensu.yml
-

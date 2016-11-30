@@ -6,18 +6,6 @@
   remote_user: sayers
   sudo: yes
   roles:
-    - role: sensu_clients
-      plugins_ref:
-	    DEVU0000908: "{{ base }}"
-	    DEVU0000900: "{{ base }}"
-	    DEVU0001026: "{{ base }}"
-	    DEVU0001027: "{{ base }}"
-      subscriptions_ref:
-  	    DEVU0000908:
-	      - base
-	    DEVU0000900: 
-	      - base
-	    DEVU0001026:
-	      - base
-	    DEVU0001027:
-	      - base
+    - role: sensu
+      plugins_ref: {}
+      subscriptions_ref: {}

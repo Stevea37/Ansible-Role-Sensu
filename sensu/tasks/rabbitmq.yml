@@ -1,0 +1,9 @@
+---
+
+- name: Copying configuration files onto remote machine
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: "../files/ssl/cert.pem", dest: "/etc/sensu/ssl/" }
+    - { src: "../files/ssl/key.pem", dest: "/etc/sensu/ssl/" }

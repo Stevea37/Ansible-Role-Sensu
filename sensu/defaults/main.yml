@@ -1,0 +1,34 @@
+---
+
+# Repository Configuration
+nexus_hostname: '13.69.185.249'
+rpm_repo: "http://{{ nexus_hostname }}:8081/nexus/content/repositories/thirdparty/sensu
+sensu:
+  name: 'sensu'
+  version: '0.26.3-1'
+
+# Gem Configuration
+gem_repo: "http://{{ nexus_hostname }}:8081/nexus/content/repositories/gems-internal/"
+gem_executable: '/opt/sensu/embedded/bin/gem'
+
+# Client Configuration
+rabbitmq_host: '10.102.81.192'
+rabbitmq_port: 5671
+rabbitmq_use_ssl:
+rabbitmq_ssl_cert_path: '/etc/sensu/ssl/cert.pem'
+rabbitmq_ssl_key_path: '/etc/sensu/ssl/key.pem'
+
+plugins_ref: {}
+ #DEVU0000908: "{{ base }}"
+ #DEVU0000900: "{{ base }}"
+ #DEVU0001026: "{{ base }}"
+ #DEVU0001027: "{{ base }}"
+subscriptions_ref: {}
+ #DEVU0000908:
+ #  - base
+ #DEVU0000900:
+ #  - base
+ #DEVU0001026:
+ #  - base
+ #DEVU0001027:
+ #  - base

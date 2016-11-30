@@ -1,0 +1,13 @@
+---
+
+base:
+  - 'sensu-plugins-disk-checks'
+  - 'sensu-plugins-load-checks'
+  - 'sensu-plugins-memory-checks'
+cdsrisk:
+  - 'sensu-plugins-cdsrisk'
+web:
+  - 'sensu-plugins-web-response'
+atlassian:
+  - 'sensu-plugins-atlassian'
+
