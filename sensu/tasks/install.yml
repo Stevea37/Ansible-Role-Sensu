@@ -1,0 +1,17 @@
+---
+
+- name: Pulling down Sensu installation files ({{ sensu_rpm.name }}-{{ sensu_rpm.version }}.rpm)
+  get_url:
+    url: "{{ rpm_repo }}/{{ sensu_rpm.name }}/{{ sensu_rpm.version }}/{{ sensu_rpm.name }}-{{ sensu_rpm.version }}.rpm"
+    dest: "/tmp/"
+
+- name: Installing Sensu
+  yum:
+    name: "/tmp/{{ sensu_rpm.name }}-{{ sensu_rpm.version }}.rpm"
+    state: present
+
+
+
+
+
+

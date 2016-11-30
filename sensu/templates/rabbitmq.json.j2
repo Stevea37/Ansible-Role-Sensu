@@ -4,8 +4,8 @@
       "cert_chain_file": "/etc/sensu/ssl/cert.pem",
       "private_key_file": "/etc/sensu/ssl/key.pem"
     },
-    "host": "10.102.81.192",
-    "port": 5671,
+    "host": "{{ rabbitmq_host }}",
+    "port": {{ rabbitmq_port }},
     "vhost": "/sensu",
     "user": "sensu",
     "password": "secret"

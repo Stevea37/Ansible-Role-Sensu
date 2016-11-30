@@ -3,7 +3,9 @@
 # Install Sensu Client
 
 - hosts: clients
-  remote_user: root
+  remote_user: sayers
   sudo: yes
   roles:
-    - sensu_clients
+    - role: sensu
+      plugins_ref: {}
+      subscriptions_ref: {}

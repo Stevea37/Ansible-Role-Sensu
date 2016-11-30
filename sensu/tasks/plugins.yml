@@ -1,0 +1,8 @@
+---
+
+- name: Installing Plugins
+  gem:
+    name: "{{ item }}"
+    executable: {{ gem_executable }}
+    repository: "{{ gem_repo }}"
+  with_items: "{{ plugins_ref[ansible_hostname] }}"
