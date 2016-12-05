@@ -1,6 +1,6 @@
 ---
 
-- name: Configure Sensu client
+- name: Configure Client from Template
   template:
     src: client.json.j2
     dest: /etc/sensu/conf.d/client.json

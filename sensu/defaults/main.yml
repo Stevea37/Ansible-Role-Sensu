@@ -1,6 +1,6 @@
 ---
 
-# Repository Configuration
+environment_name: "default"
 specify_rpm_repo: false
 rpm_repo_hostname: 'localhost'
 rpm_repo_port: '8081'
@@ -17,6 +17,9 @@ gem_repo: "http://{{ repo_hostname }}:{{ repo_port }}{{ gem_repo_uri }}/"
 gem_executable: '/opt/sensu/embedded/bin/gem'
 rabbitmq_host: 'localhost'
 rabbitmq_port: 5671
+rabbitmq_vhost: '/sensu'
+rabbitmq_user: 'sensu'
+rabbitmq_password: 'secret'
 rabbitmq_use_ssl: true
 rabbitmq_ssl_cert_path: '/etc/sensu/ssl/cert.pem'
 rabbitmq_ssl_key_path: '/etc/sensu/ssl/key.pem'

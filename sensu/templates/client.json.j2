@@ -2,7 +2,7 @@
   "client": {
     "name": "{{ ansible_hostname }}",
     "address": "{{ ansible_default_ipv4.address }}",
-    "environment": "cds-data",
+    "environment": "{{ environment_name }}",
     "subscriptions": [{% for sub in subscriptions_ref[ansible_hostname] -%}{% if loop.last %}
       "{{ sub }}"{% else %}
       "{{ sub }}",{% endif %}

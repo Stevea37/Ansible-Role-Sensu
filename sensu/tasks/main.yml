@@ -10,8 +10,10 @@
   include: plugins.yml
 
 # Define Client Configurations
-- name: Defining Client Configurations
+- name: Configuring RabbitMQ
   include: rabbitmq.yml
+
+- name: Configuring Sensu Client
   include: configure.yml
 
 
