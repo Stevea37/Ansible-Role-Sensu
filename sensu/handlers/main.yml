@@ -1,0 +1,4 @@
+---
+
+- name: Restart Sensu
+  shell: "/etc/init.d/sensu-client restart"

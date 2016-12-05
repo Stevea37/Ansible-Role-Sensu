@@ -14,15 +14,21 @@
   when: specify_rpm_repo|bool == false
 
 
-- name: Add Sensu repo
+- name: Add Sensu repo (RedHat)
   copy:
     src: "../files/sensu.repo"
     dest: "/etc/yum.repos.d/sensu.repo"
-  when: specify_rpm_repo|bool == false
+  when: (specify_rpm_repo|bool == false and ansible_os_family == "RedHat")
+
+- name: Add Sensu repo (Debian) - GPG Public Key
+  copy:
+    src: "../files/sensu.list"
+    dest: "/etc/apt/sources.list.d/sensu.list"
+  when: (specify_rpm_repo|bool == false and ansible_os_family == "Debian")
 
 
 - name: Installing Sensu
-  yum:
+  package:
     name: sensu
     state: present
   when: specify_rpm_repo|bool == false

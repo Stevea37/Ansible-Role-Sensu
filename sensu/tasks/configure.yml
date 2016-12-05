@@ -19,9 +19,9 @@
     - "/etc/sensu/ssl"
     - "/opt/sensu/embedded/bin"
     - "/opt/sensu/embedded/lib/ruby"
+  notify: Restart Sensu
 
-- name: Restart/Start Sensu
-  shell: "/etc/init.d/sensu-client restart"
+
 
  
  
