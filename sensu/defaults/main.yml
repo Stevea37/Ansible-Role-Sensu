@@ -1,34 +1,29 @@
 ---
 
 # Repository Configuration
-nexus_hostname: '13.69.185.249'
-rpm_repo: "http://{{ nexus_hostname }}:8081/nexus/content/repositories/thirdparty/sensu
+specify_rpm_repo: false
+rpm_repo_hostname: 'localhost'
+rpm_repo_port: '8081'
+rpm_repo_uri: '/nexus/content/repositories/thirdparty/sensu'
+rpm_repo: "http://{{ repo_hostname }}:{{ repo_port }}{{ rpm_repo_uri }}/"
 sensu:
   name: 'sensu'
   version: '0.26.3-1'
-
-# Gem Configuration
-gem_repo: "http://{{ nexus_hostname }}:8081/nexus/content/repositories/gems-internal/"
+specify_gem_repo: false
+gem_repo_hostname: 'localhost'
+gem_repo_port: '8081'
+gem_repo_uri: '/nexus/content/repositories/gems/internal'
+gem_repo: "http://{{ repo_hostname }}:{{ repo_port }}{{ gem_repo_uri }}/"
 gem_executable: '/opt/sensu/embedded/bin/gem'
-
-# Client Configuration
-rabbitmq_host: '10.102.81.192'
+rabbitmq_host: 'localhost'
 rabbitmq_port: 5671
-rabbitmq_use_ssl:
+rabbitmq_use_ssl: true
 rabbitmq_ssl_cert_path: '/etc/sensu/ssl/cert.pem'
 rabbitmq_ssl_key_path: '/etc/sensu/ssl/key.pem'
-
 plugins_ref: {}
- #DEVU0000908: "{{ base }}"
- #DEVU0000900: "{{ base }}"
- #DEVU0001026: "{{ base }}"
- #DEVU0001027: "{{ base }}"
 subscriptions_ref: {}
- #DEVU0000908:
- #  - base
- #DEVU0000900:
- #  - base
- #DEVU0001026:
- #  - base
- #DEVU0001027:
- #  - base
+additional_plugins: []
+base_plugins:
+  - 'sensu-plugins-disk-checks'
+  - 'sensu-plugins-load-checks'
+  - 'sensu-plugins-memory-checks'

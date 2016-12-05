@@ -3,6 +3,15 @@
 - name: Installing Plugins
   gem:
     name: "{{ item }}"
-    executable: {{ gem_executable }}
+    executable: "{{ gem_executable }}"
     repository: "{{ gem_repo }}"
-  with_items: "{{ plugins_ref[ansible_hostname] }}"
+  with_items: "{{ base_plugins + additional_plugins }}"
+  when: specify_gem_repo|bool == true
+
+
+- name: Installing Plugins
+  gem:
+    name: "{{ item }}"
+    executable: "{{ gem_executable }}"
+  with_items: "{{ base_plugins + additional_plugins }}"
+  when: specify_gem_repo|bool == false

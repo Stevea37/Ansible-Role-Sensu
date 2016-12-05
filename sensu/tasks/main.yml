@@ -1,6 +1,17 @@
 ---
 
-- include: install.yml
+# Install Sensu Client
+- name: Installing Sensu Client
+  include: install.yml
 
-- include: configure.yml
+
+# Define plugins to be used by subscriptions
+- name: Installing Plugins
+  include: plugins.yml
+
+# Define Client Configurations
+- name: Defining Client Configurations
+  include: rabbitmq.yml
+  include: configure.yml
+
 
