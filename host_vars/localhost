@@ -1,4 +1,0 @@
-additional_plugins:
-  - 'sensu-plugins-cdsrisk'
-  - 'sensu-plugins-web-response'
-  - 'sensu-plugins-atlassian'
