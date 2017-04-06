@@ -20,18 +20,14 @@ rabbitmq_password: 'secret'
 rabbitmq_use_ssl: true
 rabbitmq_ssl_cert_path: '/etc/sensu/ssl/cert.pem'
 rabbitmq_ssl_key_path: '/etc/sensu/ssl/key.pem'
-additional_subscriptions: []
-additional_plugins: []
 # To use additional plugins or subscriptions, it's advised that you use host_vars or group_vars to provide
 # additional configurations to specific hosts. You'll want to use the same format for the two additional lists
 # as the base lists below (base_plugins & base_subscriptions) More information:
 # http://docs.ansible.com/ansible/playbooks_best_practices.html#group-and-host-variables
-base_subscriptions:
+subscriptions:
   - 'base'
-base_plugins:
-  - 'sensu-plugins-disk-checks'
-  - 'sensu-plugins-load-checks'
-  - 'sensu-plugins-memory-checks'
+plugins:
+
 # Dictionary below is for specifying the rpm name and version when using a private repository.
 sensu:
   name: 'sensu'
