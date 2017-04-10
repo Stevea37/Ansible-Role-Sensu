@@ -41,7 +41,7 @@ You will define a very simple role definition inside your playbook, like so:
 ```
 
 ### Group Variable configurations
-For variables which are consistent across all boxes, specify variables inside **group_vars/all.yml**:
+For variables which are consistent across all boxes, define them inside **group_vars/all.yml**:
 
 ```
 gem_repo:
