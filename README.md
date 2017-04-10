@@ -1,4 +1,4 @@
-# Ansible-Role-Sensu
+# stevenayers.Sensu
 
 ### Ansible role for configuring Sensu.
 
