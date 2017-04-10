@@ -16,7 +16,7 @@ This playbook only supports RHEL/CentOS at the moment.
 
 | Name                  | Default Value                | Description                  |
 |-----------------------|------------------------------|------------------------------|
-| environment_name      | 'default'                    | This specifies the environment a Sensu Server and client are in, a server and client can only server one environment at a time. |
+| environment_name      | 'default'                    | This specifies the environment a Sensu Server and client are in, a server and client can only be in one environment at a time. |
 | gem_repo.url          | '' (empty string)            | If you are using a private gem repo, perhaps inside your network, specify the repo url here. |
 | gem_repo.use_url      | false                        | If you are using a private gem repo, perhaps inside your network, set this to true, otherwise leave it as false. |
 | package.url           | '' (empty string)            | If you are installing the sensu package via a url, perhaps inside your network, specify the url here. |
