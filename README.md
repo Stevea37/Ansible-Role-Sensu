@@ -1,16 +1,9 @@
 # Ansible-Role-Sensu
 
-## Ansible role for configuring Sensu.
+### Ansible role for configuring Sensu.
 
-This playbook only supports RHEL/CentOS at the moment.
+**WARNING** This playbook only supports RHEL/CentOS at the moment.
 
-## Variables
-
-# Ansible-Role-Sensu
-
-## Ansible role for configuring Sensu.
-
-This playbook only supports RHEL/CentOS at the moment.
 
 ## Variables
 
@@ -33,3 +26,29 @@ This playbook only supports RHEL/CentOS at the moment.
 | subscriptions         | [] (empty list)              | A list of the subscriptions you want the target node to be enrolled with. We recommend defining this inside group_vars or host_vars. |
 | plugins               | [] (empty list)              | A list of the plugins you want installed on the target node. We recommend defining this inside group_vars or host_vars. |
 
+## Example configuration
+In our configuration, we are using Host and Group variables, which you can find detailed in the [best practise documentation detailed here.](http://docs.ansible.com/ansible/playbooks_best_practices.html#group-and-host-variables)
+
+### Playbook configuration
+You will define a very simple role definition inside your playbook, like so:
+
+```
+- hosts: all
+  remote_user: ansible 
+  sudo: yes
+  roles:
+    - role: sensu
+```
+
+### Group Variable configurations
+For variables which are consistent across all boxes, specify variables inside group_vars/all.yml:
+
+```
+gem_repo:
+  url: "http://localhost:8081/nexus/content/repositories/gems/"
+  use_url: true
+
+package:
+  url: 'https://sensu.global.ssl.fastly.net/yum/6/x86_64/sensu-0.29.0-7.el6.x86_64.rpm'
+  use_url: true
+```
