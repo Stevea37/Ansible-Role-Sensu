@@ -62,7 +62,7 @@ plugins:
 
 ```
 
-You can then overwrite these values at group level according to how you're inventory is organised. For example:
+You can then overwrite these values at group level according to how your inventory is organised. For example:
 
 **inventory**
 ```
