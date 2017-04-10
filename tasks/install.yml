@@ -1,34 +1,31 @@
 ---
 
-- name: Installing Sensu
-  yum:
-    name: "{{ rpm_repo }}/{{ sensu.name }}/{{ sensu.version }}/{{ sensu.name }}-{{ sensu.version }}.rpm"
-    state: present
-  when: specify_rpm_repo|bool == true
-
-
-- name: Preparing Sensu Install
+- name: Installing Sensu Dependency Packages via public repository
   package:
     name: libselinux-python
     state: present
-  when: specify_rpm_repo|bool == false
+  when: package.use_url|bool == false
 
-
-- name: Add Sensu repo (RedHat)
+- name: Adding Sensu Repository (RedHat)
   copy:
     src: "../files/sensu.repo"
     dest: "/etc/yum.repos.d/sensu.repo"
-  when: (specify_rpm_repo|bool == false and ansible_os_family == "RedHat")
+  when: (package.use_url|bool == false and ansible_os_family == "RedHat")
 
-- name: Add Sensu repo (Debian) - GPG Public Key
+- name: Adding Sensu Repository (Debian)
   copy:
     src: "../files/sensu.list"
     dest: "/etc/apt/sources.list.d/sensu.list"
-  when: (specify_rpm_repo|bool == false and ansible_os_family == "Debian")
+  when: (package.use_url|bool == false and ansible_os_family == "Debian")
 
-
-- name: Installing Sensu
+- name: Installing Sensu via public repository
   package:
     name: sensu
     state: present
-  when: specify_rpm_repo|bool == false
+  when: package.use_url|bool == false
+
+- name: Installing Sensu (via package URL)
+  package:
+    name: "{{ package.url }}"
+    state: present
+  when: package.use_url|bool == true

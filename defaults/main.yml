@@ -1,22 +1,14 @@
 ---
 
 environment_name: "default"
-specify_rpm_repo: true
-repo_hostname: 'localhost'
-repo_port: '8081'
-rpm_repo_uri: '/nexus/content/repositories/thirdparty/sensu'
-rpm_repo: "http://{{ repo_hostname }}:{{ repo_port }}{{ rpm_repo_uri }}/"
-specify_gem_repo: true
-gem_repo_hostname: 'localhost'
-gem_repo_port: '8081'
-gem_repo_uri: '/nexus/content/repositories/gems-internal'
-gem_repo: "http://{{ repo_hostname }}:{{ repo_port }}{{ gem_repo_uri }}/"
+gem_repo: { url: "", use_url: false}
+package: { url: "", use_url: false}
 gem_executable: '/opt/sensu/embedded/bin/gem'
 rabbitmq_host: 'localhost'
 rabbitmq_port: 5671
 rabbitmq_vhost: '/sensu'
 rabbitmq_user: 'sensu'
-rabbitmq_password: 'secret'
+rabbitmq_password: 'randompassword'
 rabbitmq_use_ssl: true
 rabbitmq_ssl_cert_path: '/etc/sensu/ssl/cert.pem'
 rabbitmq_ssl_key_path: '/etc/sensu/ssl/key.pem'
@@ -26,7 +18,6 @@ rabbitmq_ssl_key_path: '/etc/sensu/ssl/key.pem'
 # http://docs.ansible.com/ansible/playbooks_best_practices.html#group-and-host-variables
 subscriptions: []
 plugins: []
-# Dictionary below is for specifying the rpm name and version when using a private repository.
-sensu:
-  name: 'sensu'
-  version: '0.26.3-1'
+
+
+

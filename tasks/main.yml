@@ -1,6 +1,5 @@
 ---
 
-# Install Sensu Client
 - name: Installing Sensu Package
   include: install.yml
 
