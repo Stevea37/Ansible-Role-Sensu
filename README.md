@@ -41,7 +41,7 @@ You will define a very simple role definition inside your playbook, like so:
 ```
 
 ### Group Variable configurations
-For variables which are consistent across all boxes, specify variables inside group_vars/all.yml:
+For variables which are consistent across all boxes, specify variables inside **group_vars/all.yml**:
 
 ```
 gem_repo:
@@ -51,4 +51,51 @@ gem_repo:
 package:
   url: 'https://sensu.global.ssl.fastly.net/yum/6/x86_64/sensu-0.29.0-7.el6.x86_64.rpm'
   use_url: true
+
+subscriptions:
+ - "base"
+
+plugins:
+ - "sensu-plugins-memory-checks"
+ - "sensu-plugins-disk-checks"
+ - "sensu-plugins-load-checks"
+
+```
+
+You can then overwrite these values at group level according to how you're inventory is organised. For example:
+
+**inventory**
+```
+[webservers]
+webserver1.domain.com
+10.1.1.10
+webserver2
+```
+
+**group_vars/webservers.yml**
+```
+subscriptions:
+ - "base"
+ - "web"
+
+plugins:
+ - "sensu-plugins-memory-checks"
+ - "sensu-plugins-disk-checks"
+ - "sensu-plugins-load-checks"
+ - "sensu-plugins-http-checks"
+```
+
+If you need further granularity, you can use host_vars, for example, we'll create a **host_vars/webserver1.domain.com**
+```
+subscriptions:
+ - "base"
+ - "web"
+ - "jenkins"
+
+plugins:
+ - "sensu-plugins-memory-checks"
+ - "sensu-plugins-disk-checks"
+ - "sensu-plugins-load-checks"
+ - "sensu-plugins-http-checks"
+ - "sensu-plugins-jenkins-checks"
 ```
