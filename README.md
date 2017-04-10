@@ -62,7 +62,7 @@ plugins:
 
 ```
 
-You can then overwrite these values at group level according to how your inventory is organised. For example:
+You can then overwrite these values at group or host level according to how your inventory is organised. For example:
 
 **inventory:**
 ```
@@ -85,7 +85,7 @@ plugins:
  - "sensu-plugins-http-checks"
 ```
 
-If you need further granularity, you can use host_vars, for example,  **host_vars/webserver1.domain.com:**
+**host_vars/webserver1.domain.com:**
 ```
 subscriptions:
  - "base"
