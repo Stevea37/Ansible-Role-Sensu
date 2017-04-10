@@ -1,9 +1,8 @@
 ---
 
 # Install Sensu Client
-- name: Installing Sensu Client
+- name: Installing Sensu Package
   include: install.yml
-
 
 # Define plugins to be used by subscriptions
 - name: Installing Plugins

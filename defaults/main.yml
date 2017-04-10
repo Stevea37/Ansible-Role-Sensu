@@ -1,15 +1,15 @@
 ---
 
 environment_name: "default"
-specify_rpm_repo: false
-rpm_repo_hostname: 'localhost'
-rpm_repo_port: '8081'
+specify_rpm_repo: true
+repo_hostname: '10.102.81.194'
+repo_port: '8081'
 rpm_repo_uri: '/nexus/content/repositories/thirdparty/sensu'
 rpm_repo: "http://{{ repo_hostname }}:{{ repo_port }}{{ rpm_repo_uri }}/"
-specify_gem_repo: false
-gem_repo_hostname: 'localhost'
+specify_gem_repo: true
+gem_repo_hostname: '10.102.81.194'
 gem_repo_port: '8081'
-gem_repo_uri: '/nexus/content/repositories/gems/internal'
+gem_repo_uri: '/nexus/content/repositories/gems-internal'
 gem_repo: "http://{{ repo_hostname }}:{{ repo_port }}{{ gem_repo_uri }}/"
 gem_executable: '/opt/sensu/embedded/bin/gem'
 rabbitmq_host: 'localhost'
@@ -24,10 +24,8 @@ rabbitmq_ssl_key_path: '/etc/sensu/ssl/key.pem'
 # additional configurations to specific hosts. You'll want to use the same format for the two additional lists
 # as the base lists below (base_plugins & base_subscriptions) More information:
 # http://docs.ansible.com/ansible/playbooks_best_practices.html#group-and-host-variables
-subscriptions:
-  - 'base'
-plugins:
-
+subscriptions: []
+plugins: []
 # Dictionary below is for specifying the rpm name and version when using a private repository.
 sensu:
   name: 'sensu'
