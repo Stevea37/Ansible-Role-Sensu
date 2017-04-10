@@ -2,12 +2,12 @@
 
 environment_name: "default"
 specify_rpm_repo: true
-repo_hostname: '10.102.81.194'
+repo_hostname: 'localhost'
 repo_port: '8081'
 rpm_repo_uri: '/nexus/content/repositories/thirdparty/sensu'
 rpm_repo: "http://{{ repo_hostname }}:{{ repo_port }}{{ rpm_repo_uri }}/"
 specify_gem_repo: true
-gem_repo_hostname: '10.102.81.194'
+gem_repo_hostname: 'localhost'
 gem_repo_port: '8081'
 gem_repo_uri: '/nexus/content/repositories/gems-internal'
 gem_repo: "http://{{ repo_hostname }}:{{ repo_port }}{{ gem_repo_uri }}/"
