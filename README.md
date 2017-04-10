@@ -41,7 +41,7 @@ You will define a very simple role definition inside your playbook, like so:
 ```
 
 ### Group Variable configurations
-For variables which are consistent across all boxes, define them inside **group_vars/all.yml**:
+For variables which are consistent across all boxes, define them inside **group_vars/all.yml:**
 
 ```
 gem_repo:
@@ -64,7 +64,7 @@ plugins:
 
 You can then overwrite these values at group level according to how your inventory is organised. For example:
 
-**inventory**
+**inventory:**
 ```
 [webservers]
 webserver1.domain.com
@@ -72,7 +72,7 @@ webserver1.domain.com
 webserver2
 ```
 
-**group_vars/webservers.yml**
+**group_vars/webservers.yml:**
 ```
 subscriptions:
  - "base"
@@ -85,7 +85,7 @@ plugins:
  - "sensu-plugins-http-checks"
 ```
 
-If you need further granularity, you can use host_vars, for example, we'll create a **host_vars/webserver1.domain.com**
+If you need further granularity, you can use host_vars, for example,  **host_vars/webserver1.domain.com:**
 ```
 subscriptions:
  - "base"
