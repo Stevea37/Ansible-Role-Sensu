@@ -5,7 +5,7 @@
     name: "{{ item }}"
     executable: "{{ gem_executable }}"
     repository: "{{ gem_repo }}"
-  with_items: "{{ base_plugins + additional_plugins }}"
+  with_items: "{{ plugins }}"
   when: specify_gem_repo|bool == true
 
 
@@ -13,5 +13,5 @@
   gem:
     name: "{{ item }}"
     executable: "{{ gem_executable }}"
-  with_items: "{{ base_plugins + additional_plugins }}"
+  with_items: "{{ plugins }}"
   when: specify_gem_repo|bool == false
