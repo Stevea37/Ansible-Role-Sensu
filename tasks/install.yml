@@ -1,31 +1,45 @@
 ---
 
-- name: Installing Sensu Dependency Packages via public repository
+#####################################
+# Installing Sensu via repositories #
+#####################################
+
+- name: Installing Sensu Dependency Packages via repository
   package:
     name: libselinux-python
     state: present
-  when: package.use_url|bool == false
+  when: libselinux_python_package.use_path|bool == false
 
 - name: Adding Sensu Repository (RedHat)
   copy:
     src: "../files/sensu.repo"
     dest: "/etc/yum.repos.d/sensu.repo"
-  when: (package.use_url|bool == false and ansible_os_family == "RedHat")
+  when: (sensu_package.use_path|bool == false and ansible_os_family == "RedHat")
 
 - name: Adding Sensu Repository (Debian)
   copy:
     src: "../files/sensu.list"
     dest: "/etc/apt/sources.list.d/sensu.list"
-  when: (package.use_url|bool == false and ansible_os_family == "Debian")
+  when: (sensu_package.use_path|bool == false and ansible_os_family == "Debian")
 
 - name: Installing Sensu via public repository
   package:
     name: sensu
     state: present
-  when: package.use_url|bool == false
+  when: sensu_package.use_path|bool == false
+
+#####################################
+# Installing Sensu via package URL  #
+#####################################
+
+- name: Installing Sensu Dependency Packages (via package URL)
+  package:
+    name: "{{ libselinux_python_package.path }}"
+    state: present
+  when: libselinux_python_package.use_path|bool == true
 
 - name: Installing Sensu (via package URL)
   package:
-    name: "{{ package.url }}"
+    name: "{{ sensu_package.path }}"
     state: present
-  when: package.use_url|bool == true
+  when: sensu_package.use_path|bool == true

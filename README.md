@@ -23,9 +23,6 @@ You will define a very simple role definition inside your playbook, like so:
 For variables which are consistent across all boxes, define them inside **group_vars/all.yml:**
 
 ```
-# If you have full access to the internet, you won't need to define the 'gem_repo' or 'package' variable.
-# You can find defaults listed in the table below.
-
 gem_repo:
   url: "http://localhost:8081/nexus/content/repositories/gems/"
   use_url: true
@@ -67,7 +64,7 @@ plugins:
  - "sensu-plugins-http-checks"
 ```
 
-**host_vars/webserver1.domain.com:**
+**host_vars/webserver1.domain.com.yml:**
 ```
 subscriptions:
  - "base"
@@ -90,8 +87,10 @@ plugins:
 | environment_name      | 'default'                    | Environment the Sensu Server and Client are in, a server and client can only be in one environment at a time. |
 | gem_repo.url          | '' (empty string)            | Private gem repo url, specify the repo url here. |
 | gem_repo.use_url      | false                        | If using a private gem repo, set this to true, otherwise leave it as false. |
-| package.path          | '' (empty string)            | If installing sensu via package file, specify the path here. |
-| package.use_path      | false                        | If installing sensu via package file, set this to true, otherwise leave it as false. |
+| sensu_package.path    | '' (empty string)            | If installing sensu via package file, specify the path or URL here. |
+| sensu_package.use_path| false                        | If installing sensu via package file, set this to true, otherwise leave it as false. |
+| libselinux_python_package.path    | '' (empty string)            | If installing libselinux-python via package file, specify the path or URL here. |
+| libselinux_python_package.use_path| false                        | If installing libselinux-python via package file, set this to true, otherwise leave it as false. |
 | gem_executable        | '/opt/sensu/embedded/bin/gem'| The gem executable path used for installing sensu plugins. |
 | rabbitmq_host         | 'localhost'                  | The hostname of your RabbitMQ Instance. |
 | rabbitmq_port         | 5671                         | The port of your RabbitMQ Instance, the default port is the SSL port.|

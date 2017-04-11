@@ -2,7 +2,8 @@
 
 environment_name: "default"
 gem_repo: { url: "", use_url: false}
-package: { url: "", use_url: false}
+sensu_package: { path: "", use_path: false}
+libselinux_python_package: { path: "", use_path: false}
 gem_executable: '/opt/sensu/embedded/bin/gem'
 rabbitmq_host: 'localhost'
 rabbitmq_port: 5671
@@ -12,10 +13,6 @@ rabbitmq_password: 'randompassword'
 rabbitmq_use_ssl: true
 rabbitmq_ssl_cert_path: '/etc/sensu/ssl/cert.pem'
 rabbitmq_ssl_key_path: '/etc/sensu/ssl/key.pem'
-# To use additional plugins or subscriptions, it's advised that you use host_vars or group_vars to provide
-# additional configurations to specific hosts. You'll want to use the same format for the two additional lists
-# as the base lists below (plugins & subscriptions) More information:
-# http://docs.ansible.com/ansible/playbooks_best_practices.html#group-and-host-variables
 subscriptions: []
 plugins: []
 
