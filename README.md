@@ -31,8 +31,8 @@ gem_repo:
   use_url: true
 
 package:
-  url: 'https://sensu.global.ssl.fastly.net/yum/6/x86_64/sensu-0.29.0-7.el6.x86_64.rpm'
-  use_url: true
+  path: 'https://sensu.global.ssl.fastly.net/yum/6/x86_64/sensu-0.29.0-7.el6.x86_64.rpm'
+  use_path: true
 
 subscriptions:
  - "base"
