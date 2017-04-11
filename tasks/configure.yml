@@ -7,7 +7,7 @@
     owner: root
     group: root
     mode: 0755
-  #when: not subscriptions == []
+  when: not subscriptions == []
 
 - name: Setting permissions on Sensu files
   file:
