@@ -90,8 +90,8 @@ plugins:
 | environment_name      | 'default'                    | Environment the Sensu Server and Client are in, a server and client can only be in one environment at a time. |
 | gem_repo.url          | '' (empty string)            | Private gem repo url, specify the repo url here. |
 | gem_repo.use_url      | false                        | If using a private gem repo, set this to true, otherwise leave it as false. |
-| package.url           | '' (empty string)            | If you are installing the sensu package via a url, perhaps inside your network, specify the url here. |
-| package.use_url       | false                        | If you are installing the sensu package via a url, perhaps inside your network, set this to true, otherwise leave it as false. |
+| package.path          | '' (empty string)            | If installing sensu via package file, specify the path here. |
+| package.use_path      | false                        | If installing sensu via package file, set this to true, otherwise leave it as false. |
 | gem_executable        | '/opt/sensu/embedded/bin/gem'| The gem executable path used for installing sensu plugins. |
 | rabbitmq_host         | 'localhost'                  | The hostname of your RabbitMQ Instance. |
 | rabbitmq_port         | 5671                         | The port of your RabbitMQ Instance, the default port is the SSL port.|
@@ -101,5 +101,5 @@ plugins:
 | rabbitmq_use_ssl      | true                         | Specify whether or not you're using SSL for RabbitMQ transport. |
 | rabbitmq_ssl_cert_path| '/etc/sensu/ssl/cert.pem'    | Destination for RabbitMQ SSL cert path. |
 | rabbitmq_ssl_key_path | '/etc/sensu/ssl/key.pem'     | Destination for RabbitMQ SSL key path. |
-| subscriptions         | [] (empty list)              | A list of the subscriptions you want the target node to be enrolled with. We recommend defining this inside group_vars or host_vars. |
-| plugins               | [] (empty list)              | A list of the plugins you want installed on the target node. We recommend defining this inside group_vars or host_vars. |
+| subscriptions         | [] (empty list)              | List of the subscriptions you want the target node to be enrolled with.|
+| plugins               | [] (empty list)              | List of the plugins you want installed on the target node. |
