@@ -3,7 +3,7 @@
     "name": "{{ ansible_hostname }}",
     "address": "{{ ansible_default_ipv4.address }}",
     "environment": "{{ environment_name }}",
-    "subscriptions": {{ subscriptions | to_nice_json }}
+    "subscriptions": {{ subscriptions | to_nice_json }},
     "socket": {
       "bind": "127.0.0.1",
       "port": 3030

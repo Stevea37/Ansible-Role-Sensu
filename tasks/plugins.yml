@@ -19,6 +19,6 @@
   gem:
     name: "{{ item }}"
     executable: "{{ gem_executable }}"
-    repository: "{{ gem_repo.url }}"
+    repository: "{{ gem_repo_url }}"
   with_items: "{{ plugins }}"
   when: not gem_repo_url == ''
