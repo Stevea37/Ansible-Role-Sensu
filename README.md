@@ -25,6 +25,7 @@ For variables which are consistent across all boxes, define them inside **group_
 ```
 # If you have full access to the internet, you won't need to define the 'gem_repo' or 'package' variable.
 # You can find defaults listed in the table below.
+
 gem_repo:
   url: "http://localhost:8081/nexus/content/repositories/gems/"
   use_url: true
