@@ -23,13 +23,9 @@ You will define a very simple role definition inside your playbook, like so:
 For variables which are consistent across all boxes, define them inside **group_vars/all.yml:**
 
 ```
-gem_repo:
-  url: "http://localhost:8081/nexus/content/repositories/gems/"
-  use_url: true
+gem_repo_url: "http://localhost:8081/nexus/content/repositories/gems/"
 
-package:
-  path: 'https://sensu.global.ssl.fastly.net/yum/6/x86_64/sensu-0.29.0-7.el6.x86_64.rpm'
-  use_path: true
+sensu_package_path: 'https://sensu.global.ssl.fastly.net/yum/6/x86_64/sensu-0.29.0-7.el6.x86_64.rpm'
 
 subscriptions:
  - "base"
@@ -85,12 +81,9 @@ plugins:
 | Name                  | Default Value                | Description                  |
 |-----------------------|------------------------------|------------------------------|
 | environment_name      | 'default'                    | Environment the Sensu Server and Client are in, a server and client can only be in one environment at a time. |
-| gem_repo.url          | '' (empty string)            | Private gem repo url, specify the repo url here. |
-| gem_repo.use_url      | false                        | If using a private gem repo, set this to true, otherwise leave it as false. |
-| sensu_package.path    | '' (empty string)            | If installing sensu via package file, specify the path or URL here. |
-| sensu_package.use_path| false                        | If installing sensu via package file, set this to true, otherwise leave it as false. |
-| libselinux_python_package.path    | '' (empty string)            | If installing libselinux-python via package file, specify the path or URL here. |
-| libselinux_python_package.use_path| false                        | If installing libselinux-python via package file, set this to true, otherwise leave it as false. |
+| gem_repo_url          | '' (empty string)            | Private gem repo url, specify the repo url here. |
+| sensu_package_path    | '' (empty string)            | If installing sensu via package file, specify the path or URL here. |
+| libselinux_python_package_path    | '' (empty string)            | If installing libselinux-python via package file, specify the path or URL here. |
 | gem_executable        | '/opt/sensu/embedded/bin/gem'| The gem executable path used for installing sensu plugins. |
 | rabbitmq_host         | 'localhost'                  | The hostname of your RabbitMQ Instance. |
 | rabbitmq_port         | 5671                         | The port of your RabbitMQ Instance, the default port is the SSL port.|

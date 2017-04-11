@@ -1,9 +1,9 @@
 ---
 
-environment_name: "default"
-gem_repo: { url: "", use_url: false}
-sensu_package: { path: "", use_path: false}
-libselinux_python_package: { path: "", use_path: false}
+environment_name: 'default'
+gem_repo_url: ''
+sensu_package_path: ''
+libselinux_python_package_path: ''
 gem_executable: '/opt/sensu/embedded/bin/gem'
 rabbitmq_host: 'localhost'
 rabbitmq_port: 5671

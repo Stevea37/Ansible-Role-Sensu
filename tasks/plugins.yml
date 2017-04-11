@@ -1,17 +1,24 @@
 ---
 
+#####################################
+# Installing Sensu via repositories #
+#####################################
+
+- name: Installing Plugins
+  gem:
+    name: "{{ item }}"
+    executable: "{{ gem_executable }}"
+  with_items: "{{ plugins }}"
+  when: gem_repo_url == ''
+
+#####################################
+# Installing Sensu via package URL  #
+#####################################
+
 - name: Installing Plugins
   gem:
     name: "{{ item }}"
     executable: "{{ gem_executable }}"
     repository: "{{ gem_repo.url }}"
   with_items: "{{ plugins }}"
-  when: gem_repo.use_url|bool == true
-
-
-- name: Installing Plugins
-  gem:
-    name: "{{ item }}"
-    executable: "{{ gem_executable }}"
-  with_items: "{{ plugins }}"
-  when: gem_repo.use_url|bool == false
+  when: not gem_repo_url == ''
