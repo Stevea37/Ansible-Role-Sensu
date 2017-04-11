@@ -87,9 +87,9 @@ plugins:
 
 | Name                  | Default Value                | Description                  |
 |-----------------------|------------------------------|------------------------------|
-| environment_name      | 'default'                    | This specifies the environment a Sensu Server and client are in, a server and client can only be in one environment at a time. |
-| gem_repo.url          | '' (empty string)            | If you are using a private gem repo, perhaps inside your network, specify the repo url here. |
-| gem_repo.use_url      | false                        | If you are using a private gem repo, perhaps inside your network, set this to true, otherwise leave it as false. |
+| environment_name      | 'default'                    | Environment the Sensu Server and Client are in, a server and client can only be in one environment at a time. |
+| gem_repo.url          | '' (empty string)            | Private gem repo url, specify the repo url here. |
+| gem_repo.use_url      | false                        | If using a private gem repo, set this to true, otherwise leave it as false. |
 | package.url           | '' (empty string)            | If you are installing the sensu package via a url, perhaps inside your network, specify the url here. |
 | package.use_url       | false                        | If you are installing the sensu package via a url, perhaps inside your network, set this to true, otherwise leave it as false. |
 | gem_executable        | '/opt/sensu/embedded/bin/gem'| The gem executable path used for installing sensu plugins. |
